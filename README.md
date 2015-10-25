@@ -1,7 +1,6 @@
-# Ember-note
+# Ember-Note
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+A run through the tutorial project in the book [Deliver Audacious Web Apps with Ember 2](https://pragprog.com/book/mwjsember/deliver-audacious-web-apps-with-ember-2)
 
 ## Prerequisites
 
