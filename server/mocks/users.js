@@ -9,6 +9,7 @@ module.exports = function(app) {
   
   
   usersRouter.post('/', function(req, res) {
+    console.log('usersRouter.post /');
     // look for the most recently created record and use it to set the id
     // field  of our incoming record, which is required by Ember Data
     userDB.find({}).sort({
@@ -33,12 +34,16 @@ module.exports = function(app) {
   });
 
   usersRouter.get('/', function(req, res) {
-    res.send({
-      'users': []
+    console.log('usersRouter.get /');
+    userDB.find(req.query).exec(function(error, users) {
+      res.send({
+       users
+      });
     });
   });
 
   usersRouter.get('/:id', function(req, res) {
+    console.log('usersRouter.get /:id');
     res.send({
       'users': {
         id: req.params.id
