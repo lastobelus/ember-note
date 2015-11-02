@@ -10,7 +10,11 @@ Router.map(function() {
   this.route('login');
   this.route('notebooks', {
     path: 'notebooks/:user_id'
-  }, function() {});
+  }, function() {
+    this.route('notes', { path: "notes/:notebook_id" }, function() {
+    
+    });
+  });
 });
 
 export default Router;
