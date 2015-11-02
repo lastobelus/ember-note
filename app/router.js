@@ -8,7 +8,9 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('register', {});
   this.route('login');
-  this.route('notebooks');
+  this.route('notebooks', {
+    path: 'notebooks/:user_id'
+  }, function() {});
 });
 
 export default Router;

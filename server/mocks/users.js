@@ -3,7 +3,7 @@ module.exports = function(app) {
   var usersRouter = express.Router();
   var bodyParser = require('body-parser');
   app.use(bodyParser.json());
-  
+
   var nedb = require('nedb');  
   var userDB = new nedb({ filename: 'users', autoload: true });
   
@@ -37,7 +37,7 @@ module.exports = function(app) {
     console.log('usersRouter.get /');
     userDB.find(req.query).exec(function(error, users) {
       res.send({
-       users
+        users: users
       });
     });
   });
