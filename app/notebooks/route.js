@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function() {
+  model: function(params) {
     return this.store.query('notebook', {
       user: params.user_id
     });
@@ -18,7 +18,7 @@ export default Ember.Route.extend({
         this.refresh();
       }, function() {
         console.log('save failed');
-      })
+      });
     },
   }
   
