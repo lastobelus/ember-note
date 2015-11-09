@@ -13,7 +13,9 @@
             {{/link-to}}
             <button {{action 'deleteNote' note}}>delete</button>
           </li>
-        {{/each}}        
+        {{else}}
+        <div>No notes found</div>
+        {{/each}}
       </ul>
     </div>
   </div>

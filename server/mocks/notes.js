@@ -48,15 +48,29 @@ module.exports = function(app) {
   });
 
   notesRouter.put('/:id', function(req, res) {
-    res.send({
-      'notes': {
-        id: req.params.id
+    console.log('notesRouter.put');
+    var id = parseInt(req.params.id);
+    console.log("id: ", id);
+    console.log("req.body.note: ", req.body.note);
+    noteDB.update({id: id}, {$set: req.body.note},
+      function(err, numReplaced, newNotes) {
+        console.log("err: ", err);
+        console.log("numReplaced: ", numReplaced);
+        console.log("newNotes: ", newNotes);
+        res.send({
+          'notes': {
+            id: req.params.id
+          }
+        });
       }
-    });
+    )
   });
 
   notesRouter.delete('/:id', function(req, res) {
-    res.status(204).end();
+    var id = parseInt(req.params.id);
+    noteDB.remove({id: id}, function(err, numRemoved) {
+      res.status(204).end();
+    });
   });
 
   app.use('/api/notes', notesRouter);

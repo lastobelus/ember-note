@@ -23,6 +23,11 @@ export default Ember.Route.extend({
             console.log('note save failed');
           });
       });
+    },
+    deleteNote(note) {
+      console.log('deleting note with title '+note.get('title'));
+      note.deleteRecord();
+      note.save();      
     }
   }
 });
