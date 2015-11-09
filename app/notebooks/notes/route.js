@@ -12,8 +12,8 @@ export default Ember.Route.extend(ValidationFunctions, {
     addNote: function() {
       var title = this.controller.get("title");
       if ( !this.isValidLength(title, 0, 140)) {
-        alert('Title must be longer than 0 '
-          + 'characters and not more than 140.'
+        alert('Title must be longer than 0 ' + 
+          'characters and not more than 140.'
         );
       } else {
         this.store.findRecord('notebook',

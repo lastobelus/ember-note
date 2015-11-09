@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model(params) {
+    this.logger.log("logged with the injected logger");
     return this.store.query('notebook', {
       user: params.user_id
     });
@@ -17,7 +18,7 @@ export default Ember.Route.extend({
         this.controller.set('title', null);
         this.refresh();
       }, function() {
-        console.log('save failed');
+        this.logger.log('save failed');
       });
     }
   }

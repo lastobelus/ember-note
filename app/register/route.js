@@ -16,7 +16,7 @@ export default Ember.Route.extend(ValidationFunctions, {
           console.log('save failed');
         });
       } else {
-        alert('Invalid email address.')
+        alert('Invalid email address.');
       }
     },
   }
