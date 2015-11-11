@@ -19,21 +19,48 @@ Scenario: Valid email
   And 'Register new user:' should be blank again
 
 */
+var originalAlert;
 
 module('Acceptance | register', {
   beforeEach: function() {
+    originalAlert = window.alert;
     this.application = startApp();
   },
-
+  
   afterEach: function() {
+    window.alert = originalAlert;
     Ember.run(this.application, 'destroy');
   }
 });
 
-test('visiting /register', function(assert) {
-  visit('/register');
+test('registering with an invalid email', function(assert) {
+  assert.expect(3);
 
+  window.alert = function(text) {
+    var errMsg = 'Invalid email address.';
+    assert.equal(text, errMsg, 'expected ' + text + ' to be ' + errMsg);
+  };
+    
+  visit('/register');
+  
+  fillIn( '#new-user-email', 'bob' );
+  click( '#register-button' );
+  
   andThen(function() {
-    assert.equal(currentURL(), '/register');
+    assert.equal( find( '#message' ).text().trim(), '' );
+    assert.equal( currentURL(), '/register' );
+  });
+});
+
+
+test('registering with a valid email', function(assert) {
+  visit('/register');
+  
+  fillIn( '#new-user-email', 'bob@mailinator.com' );
+  click( '#register-button' );
+  
+  andThen(function() {
+    assert.equal( find( '#message' ).text().trim(), 'A new user with the email "bob@mailinator.com" was added!' );
+    assert.equal( currentURL(), '/register' );
   });
 });

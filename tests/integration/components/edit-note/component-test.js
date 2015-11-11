@@ -9,7 +9,6 @@ moduleForComponent('edit-note', 'Integration | Component | edit note', {
 
 test('it renders', function(assert) {
   assert.expect(3);
-
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 

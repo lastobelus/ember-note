@@ -1,10 +1,12 @@
 <div class="col-md-12">
-  Register new user: {{input id="new-user-name" class="text-input" placeholder="Enter email address" value=name}}
-  <button {{action 'addNew' }} class="btn btn-primary">
+  Register new user: {{input id="new-user-email" class="text-input" placeholder="Enter email address" value=name}}
+  <button id="register-button" {{action 'addNew' }} class="btn btn-primary">
     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     Add
   </button>
 </div>
 <div class="col-md-12">
-  {{message}}
+  <div id="message">
+    {{message}}
+  </div>
 </div>
