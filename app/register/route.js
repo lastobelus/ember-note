@@ -11,7 +11,8 @@ export default Ember.Route.extend(ValidationFunctions, {
         });
         user.save().then( () => {
           console.log('save successful');
-          this.set.controller('name', null);
+          this.controller.set("message", 'A new user with the name "' + this.controller.get("name") + '" was added!');
+          this.controller.set('name', null);
         }, function() {
           console.log('save failed');
         });
