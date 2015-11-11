@@ -2,7 +2,11 @@
 <div>
   <div class="col-md-4">
     <div>
-      title: {{input id="new-note-title" class="text-input" placeholder="Note Title" value=title}}<button {{action 'addNote' }}>Add</button>
+      title: {{input id="new-note-title" class="text-input" placeholder="Note Title" value=title}}
+      <button {{action 'addNote' }} class="btn btn-primary">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        Add
+      </button>
     </div>
     <div>
       <ul>
@@ -11,7 +15,10 @@
             {{#link-to 'notebooks.notes.note' note.id}}
               {{note.title}}
             {{/link-to}}
-            <button {{action 'deleteNote' note}}>delete</button>
+            <button {{action 'deleteNote' note}} class="btn btn-danger">
+              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+              Delete
+            </button>
           </li>
         {{else}}
         <div>No notes found</div>

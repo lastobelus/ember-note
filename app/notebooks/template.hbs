@@ -3,7 +3,10 @@
     <div>Notebooks</div>
     <div>
       title: {{input id="new-notebook-title" class="text-input" placeholder="Enter title" value=title}}
-      <button {{action 'addNotebook' }}>Add</button>
+      <button {{action 'addNotebook' }} class="btn btn-primary">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        Add
+      </button>
     </div>
     <div>
       <ul>
